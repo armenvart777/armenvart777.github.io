@@ -169,15 +169,16 @@ figcaption { font-size: .875rem; font-weight: 600; }
   transform: translateY(-50%) rotate(45deg);
 }
 .flow-merge {
+  --branch-gap: 5px;
   grid-template-columns: minmax(0, 1.28fr) minmax(0, 1fr);
-  column-gap: 32px;
-  row-gap: 5px;
+  grid-auto-rows: 1fr;
+  gap: var(--branch-gap) 32px;
 }
 .flow-merge li { min-height: 27px; }
 .flow-merge li:last-child { grid-area: 1 / 2 / span 2; }
 .flow-merge li:not(:last-child)::before { width: 16px; }
 .flow-merge li:not(:last-child)::after { display: none; }
-.flow-merge li:first-child::before { height: calc(100% + 5px); border-right: 1px solid currentColor; }
+.flow-merge li:first-child::before { height: calc(100% + var(--branch-gap) + 2px); border-right: 1px solid currentColor; }
 .flow-merge li:last-child::before,
 .flow-merge li:last-child::after { content: ""; position: absolute; top: 50%; }
 .flow-merge li:last-child::before { right: calc(100% + 1px); width: 16px; border-top: 1px solid currentColor; }
